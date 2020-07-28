@@ -5,8 +5,15 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's blog starter
+  Gatsby's blog starter - TypeScript
 </h1>
+
+**Important Note**
+
+The boilerplate supports TypeScript development, partially following with the guide:
+[PART 1: SETTING UP GATSBY PROJECT WITH TYPESCRIPT](https://www.extensive.one/setting-up-gatsby-project-with-typescript/)
+
+**Original Docs**
 
 Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
