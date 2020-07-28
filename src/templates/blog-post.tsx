@@ -1,22 +1,25 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react';
+import { Link, graphql, PageProps } from 'gatsby';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Bio from '../components/bio';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { rhythm, scale } from '../utils/typography';
+import { Post, Site, PageContext } from '../interfaces/data-props';
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pageContext
+interface DataProps {
+  site: Site;
+  markdownRemark: Post;
+}
+
+const BlogPostTemplate = ({ data, pageContext, location }: PageProps<DataProps, PageContext>): JSX.Element => {
+  const post = data.markdownRemark;
+  const siteTitle = data.site.siteMetadata.title;
+  const { previous, next } = pageContext;
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <article>
         <header>
           <h1
@@ -75,10 +78,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </ul>
       </nav>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -98,4 +101,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

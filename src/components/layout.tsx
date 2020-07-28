@@ -1,11 +1,16 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { ReactNode } from 'react';
+import { Link } from 'gatsby';
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm, scale } from '../utils/typography';
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+interface Props {
+  location: Location;
+  title: string;
+  children: ReactNode;
+}
+const Layout = ({ location, title, children }: Props): JSX.Element => {
+  const rootPath = `${__PATH_PREFIX__}/`;
+  let header;
 
   if (location.pathname === rootPath) {
     header = (
@@ -26,7 +31,7 @@ const Layout = ({ location, title, children }) => {
           {title}
         </Link>
       </h1>
-    )
+    );
   } else {
     header = (
       <h3
@@ -45,7 +50,7 @@ const Layout = ({ location, title, children }) => {
           {title}
         </Link>
       </h3>
-    )
+    );
   }
   return (
     <div
@@ -64,7 +69,7 @@ const Layout = ({ location, title, children }) => {
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
